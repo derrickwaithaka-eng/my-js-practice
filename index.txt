@@ -1,0 +1,152 @@
+Explain the differences between var, let, and const in JavaScript regarding variable scope, hoisting, and reassignment.
+console.log(x); // 10 (escapes the block)
+if (true) {
+  let y = 20;
+  const z = 30;Explain the differences between var, let, and const in JavaScript regarding variable scope, hoisting, and reassignment.
+if (true) {
+  var x = 10;
+}
+console.log(y); // ReferenceError: y is not defined
+console.log(z); // ReferenceError: z is not defined
+        
+Discuss the difference between loose equality (==) and strict equality (===). Why is strict equality generally considered a best practice?
+
+LOOSE EQUALITY -Compares two values of the same type with conversion
+STRICT EQUALITY -Compares two values of the same data type with no conversion
+
+Describe how a conditional switch statement can be used as an alternative to a long chain of if...else if statements, and explain the role of the default keyword.
+
+Logical and && Returns true if both expressions are true otherwise false
+Logical or || Returns true if one or  both expressions are true otherwise false
+Logical not - - - returns true for false expressions and false for true expressions. 
+
+
+Write an if...else if...else statement that evaluates a variable representing a movie ticket buyer's age. The code should output different pricing tiers: children under 5 get in free, youth aged 5 to 17 get a child discount, adults aged 18 to 64 pay full price, and seniors 65 and older get a senior discount.
+
+let age = 25; // Change this value to test different ages
+
+if (age < 5) {
+    console.log("Ticket Price: Free");
+} else if (age <= 17) {
+    console.log("Ticket Price: Child Discount");
+} else if (age <= 64) {
+    console.log("Ticket Price: Full Price (Adult)");
+} else {
+    console.log("Ticket Price: Senior Discount");
+}
+
+Create a variable holding a user's account balance. Use the ternary operator to evaluate whether the balance is less than zero; if true, assign the string "Account Overdrawn", otherwise assign "Account Active".
+
+const accountBalance = -15.50; // Change this value to test
+const accountStatus = accountBalance < 0 ? "Account Overdrawn" : "Account Active";
+console.log(accountStatus); // Output: "Account Overdrawn"
+
+Write a short script using variables, arithmetic operators, and a switch statement that calculates a final grade based on a numeric score out of 100 divided into ranges for grades A, B, C, D, and F.
+
+// Input variables
+const totalPoints = 87;
+const maxPoints = 100;
+
+// Calculate percentage score
+const score = (totalPoints / maxPoints) 100;
+
+// Map the score to a range indicator for the switch statement  w
+// Math.floor(score / 10) gives: 10 or 9 for A, 8 for B, 7 for C, 6 for D, and < 6 for F
+const scoreBracket = Math.floor(score / 10);
+
+let grade;
+
+switch (scoreBracket) {
+  case 10:
+  case 9:
+    grade = "A";
+    break;
+  case 8:
+    grade = "B";
+    break;
+  case 7:
+    grade = "C";
+    break;
+  case 6:
+    grade = "D";
+    break;
+  default:
+    grade = "F";
+}
+
+console.log(`Score: ${score}% | Final Grade: ${grade}`);
+// Output: Score: 87% | Final Grade: B
+
+Explain the concept of "truthy" and "falsy" values in JavaScript. List at least five values that evaluate to false in a boolean context.
+Truthy values evaluate to true when converted to a boolean.
+Falsy values evaluate to false when converted to a boolean.
+
+Describe how the && (AND) and || (OR) operators use short-circuit evaluation. How can this be used to provide default values for variables?
+If the left-hand operand is falsy, the overall expression must be false. It "short-circuits" and returns the left value immediately, ignoring the right-hand side.
+If the left-hand operand is truthy, it continues and returns the right value (regardless of whether the right side is truthy or falsy).
+
+If the left-hand operand is falsy, the overall expression must be false. It "short-circuits" and returns the left value immediately, ignoring the right-hand side.
+If the left-hand operand is truthy, it continues and returns the right value (regardless of whether the right side is truthy or falsy). answer
+left is Falsy: The && operator knows the total condition can never be true, so it short-circuits and returns that left falsy value immediately (e.g., 0 && "Hello" returns 0).
+Left is Truthy: The outcome depends entirely on the second value, so it moves to the right side and returns whatever value is there (e.g., "Cat" && "Dog" returns "Dog").
+
+
+Determine which block executes and justify your answer based on JavaScript's type conversion rules.
+let str = "0";
+let num = 0;
+
+if (str && num) {
+  console.log("Block A");
+} else if (str || num) {
+  console.log("Block B");
+} else {
+  console.log("Block C");
+}
+
+
+Rewrite a nested if...else structure using a single switch statement or a ternary operator, and explain when one is preferable over the other.
+let userRole = "admin";
+let accessLevel;
+
+if (userRole === "admin") {
+  accessLevel = "Full Access";
+} else {
+  if (userRole === "editor") {
+    accessLevel = "Edit Access";
+  } else {
+    if (userRole === "viewer") {
+      accessLevel = "Read Only";
+    } else {
+      accessLevel = "No Access";
+    }
+  }
+}
+
+
+ Identify the three expressions inside a for loop header: for(initialization; condition; final-expression). At exactly what point 
+ Initialization: Runs once before the loop starts to set up counter variables (e.g., let i = 0).
+Condition: Evaluated before every iteration. If true, the loop body executes; if false, the loop terminates.
+Final-expression (Update): Evaluated at the end of every iteration, right after the loop body completes and immediately before the condition is checked again (e.g., i++).
+
+What is a "loop invariant," and how does a programmer ensure a while loop eventually reaches its termination condition?
+A loop invariant is a logical assertion or condition that is true before and after each iteration of a loop. It serves as a mathematical/formal proof that a loop is doing what it is designed to do.
+While the variables inside the loop change during an iteration, the core relationship described by the loop invariant remains unchanged.
+
+
+Define the difference between the break and continue keywords. How do they affect the "counter" or "iterator" in a loop?
+The loop body halts immediately.
+The loop counter stops entirely. Its value remains fixed at whatever it was when the break statement was triggered.
+
+Write a for loop that iterates through an array of numbers but skips every even number and stops entirely if it encounters a negative number.
+
+
+Provide a code example where a do...while loop would behave differently than a standard while loop with the same condition.
+
+
+Provide a code example where a do...while loop would behave differently than a standard while loop with the same condition.
+loop executes its code body at least once before evaluating its condition, whereas a standard while loop checks its condition first and may never execute the body at all.
+This key difference appears when the loop condition evaluates to false from the very beginning.
+
+Define the arguments object vs. the "Rest Parameter"
+In JavaScript, both the arguments object and rest parameters (...args) allow a function to accept an indefinite number of arguments. However, rest parameters are the modern (ES6+) standard and fix several fundamental design flaws of the legacy arguments object.
+
